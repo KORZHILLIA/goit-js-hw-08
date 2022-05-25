@@ -1,3 +1,4 @@
+const throttle = require('lodash.throttle');
 import { save, load } from './localStorageServices';
 
 const form = document.querySelector('.feedback-form');
@@ -11,7 +12,7 @@ if (localStorageCurrentContent) {
     form.elements[key].value = parsedObj[key];
   });
 }
-form.addEventListener('input', feedbackMemoriser);
+form.addEventListener('input', throttle(feedbackMemoriser, 500));
 form.addEventListener('submit', feedbackEraser);
 
 function feedbackMemoriser() {
