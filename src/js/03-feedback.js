@@ -27,6 +27,6 @@ function feedbackMemoriser() {
 function feedbackEraser(event) {
   event.preventDefault();
   console.log(load(localStorageKey));
-  localStorage.removeItem(localStorageKey);
+  localStorage.clear();
   form.reset();
 }
